@@ -13,11 +13,11 @@ import com.api.book.springboot_restbook.entities.Book;
 
 @Component
 public class BookServices {
-	
+
 	@Autowired
 	private BookRepo bookRepo;
-	
-	//no need now previously using for fake purpose now using db 
+
+	// no need now previously using for fake purpose now using db
 	/*
 	 * private static List<Book> list = new ArrayList<>();
 	 * 
@@ -27,47 +27,44 @@ public class BookServices {
 	 * Book(4,"Java 4 ","JavaSangam")); list.add(new Book(5,"Java 5","JavaSangam"));
 	 * }
 	 */
-	
-	//get all books
-	
-	public List<Book> getallbook(){
-		
-		
-		List<Book>  listbooks =	(List<Book>) bookRepo.findAll();
-		return listbooks;
-		
-		
+
+	// get all books
+
+	public List<Book> getallbook() {
+
+		List<Book> books = (List<Book>) bookRepo.findAll();
+		return books;
+
 	}
-	
-	
-	//	get single book by id
-	
+
+	// get single book by id
+
 	public Book getbookbyid(int id) {
-		
+
 		/*
 		 * Book book = null;
 		 * 
 		 * book = list.stream().filter(e->e.getId()==id).findFirst().get(); return book;
 		 */
-		
-		return  (Book) bookRepo.findbyId(id);
-	
-		
+
+		return (Book) bookRepo.findbyId(id);
+
 	}
-	
+
 //	adding the book
 	public Book addBook(Book book) {
 		/* list.add(book); */
-		Book result = bookRepo.save(book);
-		return result;
-	}
+		
+		  Book result = bookRepo.save(book); return result;
+		 
 
+	}
 
 	public void deleteBook(int bookId) {
 		// TODO Auto-generated method stub
-		
+
 		/* list.delete(bookId); */
-		
+
 		/*
 		 * list.stream().filter(book->{ if(book.getId()==bookId) { return true; }else {
 		 * return false; }
@@ -75,16 +72,16 @@ public class BookServices {
 		 * 
 		 * }).collect(Collectors.toList());
 		 */
-		
+
 		bookRepo.deleteById(bookId);
-		
+
 	}
-	
-	public void updateBook(Book  book,int bookId) {
+
+	public void updateBook(Book book, int bookId) {
 		// TODO Auto-generated method stub
-		
+
 		/* list.delete(bookId); */
-		
+
 		/*
 		 * list.stream().filter(book->{ if(book.getId()==bookId) { return true; }else {
 		 * return false; }
@@ -94,9 +91,9 @@ public class BookServices {
 		 * 
 		 * 
 		 */
-		book.setId(bookId);  
+		book.setId(bookId);
 		bookRepo.save(book);
-		
+
 	}
 
 }
