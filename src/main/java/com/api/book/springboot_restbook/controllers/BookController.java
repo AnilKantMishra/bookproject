@@ -60,7 +60,12 @@ public class BookController {
 		this.bookservices.deleteBook(bookid);
 		
 	}
-	
+
+	public void update(@PathVariable("bookid") int bookid) {
+		
+		this.bookservices.deleteBook(bookid);
+		
+	}
 	
     
 }
