@@ -8,6 +8,7 @@ import com.api.book.springboot_restbook.entities.Book;
 @Repository
 public interface BookRepo extends CrudRepository<Book, Integer>{
 	
-	
+	public BookRepo findbyId(int id);
+
 
 }

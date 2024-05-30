@@ -2,7 +2,6 @@ package com.api.book.springboot_restbook.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.hibernate.metamodel.model.domain.internal.AbstractSqmPathSource;
@@ -40,7 +39,7 @@ public class BookServices {
 
 	// get single book by id
 
-	public Optional<Book> getbookbyid(int id) {
+	public Book getbookbyid(int id) {
 
 		/*
 		 * Book book = null;
@@ -48,7 +47,7 @@ public class BookServices {
 		 * book = list.stream().filter(e->e.getId()==id).findFirst().get(); return book;
 		 */
 
-		return  bookRepo.findById(id);
+		return (Book) bookRepo.findbyId(id);
 
 	}
 
